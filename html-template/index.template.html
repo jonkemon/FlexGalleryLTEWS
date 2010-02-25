@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>${title}</title>
+<script type="text/javascript" src="swfobject/src/swfobject.js"></script>
+<script type="text/javascript" src="swfobject/src/ffbugfix.js"></script>
+<script type="text/javascript">
+    swfobject.registerObject("${application}", "9.0.115", "swfobject/src/expressInstall.swf");
+</script>
+</head>
+
+<body>
+<object id="${application}" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="${width}" height="${height}">
+        <param name="movie" value="${swf}.swf" />
+        <!--[if !IE]>-->
+        <object type="application/x-shockwave-flash" data="${swf}.swf" width="${width}" height="${height}">
+	<div id="ffbugfix" style="display:none;"></div>
+        <!--<![endif]-->
+          <p>The latest Flash Player is required to see this content</p>
+        <!--[if !IE]>-->
+        </object>
+        <!--<![endif]-->
+</object>
+</body>
+</html>

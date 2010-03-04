@@ -15,6 +15,7 @@
 		>
 <mx:Script>
 	<![CDATA[
+		import mx.events.ListEvent;
 		import mx.effects.Tween;
 		import com.telecoms.media.flexGallery.control.events.gallery.LoadImagesEvent;
 		import mx.controls.Image;
@@ -73,20 +74,28 @@
         {
             //trace('tween end value: ' + value);
         }
+        private function showFullImage(event:ListEvent):void
+        {
+        	var i:int = new int;
+        	var imageUrlString:String = new String;
+        	i = event.columnIndex;
+        	trace(model.photoAdresses.images[i].urlFull);
+        	imageUrlString = model.photoAdresses.images[i].urlFull;
+        	var imageURL:URLRequest = new URLRequest(imageUrlString);
+    		navigateToURL(imageURL);
+        }
 	]]>
 </mx:Script>
 
 	<mx:Component id="ImageRenderer">
-		<mx:VBox verticalScrollPolicy="off" horizontalScrollPolicy="off" horizontalAlign="center">
-            <mx:Image id="imageView" source="{data}" width="145" />
-		</mx:VBox>
+            <mx:Image source="{data}" width="145" horizontalAlign="center"/>
     </mx:Component>
 	
 	<mx:Canvas id="photoTileList" width="500" height="100%" verticalScrollPolicy="off" horizontalScrollPolicy="off" x="36" autoLayout="false">
 		<gallery:SmoothScrollingHorizontalList id="list" backgroundColor="#FFFFFF" width="100%"
 			 dataProvider="{model.photoObjects}" itemRenderer="{ImageRenderer}"
-			 columnCount="4" columnWidth="169" rowHeight="146" verticalScrollPolicy="off"
-			 selectable="false" borderColor="#FFFFFF"
+			 columnCount="4" columnWidth="169" rowHeight="146" verticalScrollPolicy="off" horizontalScrollPolicy="off"
+			 selectable="false" borderColor="#FFFFFF" itemClick="showFullImage(event);"
 			 >
 		</gallery:SmoothScrollingHorizontalList>
 	</mx:Canvas>
@@ -94,7 +103,7 @@
 		<!--Add this to SmoothScrollingHorizontalList for firefox 'done' bug
 		updateComplete="{ExternalInterface.call('forceloaddone');}"-->
 		
-	<mx:Canvas height="100%" width="100%">
+	<mx:Canvas height="100%" width="100%" horizontalScrollPolicy="off">
 		<mx:Button id="previous" 
 			upSkin="@Embed('../images/arrow.png')" 
 			downSkin="@Embed('../images/arrow.png')"

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rds:ServiceLocator xmlns:rds="com.adobe.cairngorm.business.*" xmlns:mx="http://www.adobe.com/2006/mxml">
+	<mx:HTTPService id="recipeRetrieve" url="xml/recipeData.xml" resultFormat="e4x"/>
+</rds:ServiceLocator>
+<!-- LOCAL CONNECTION IS http://10.8.42.6/displaycontentswithxml/ -->

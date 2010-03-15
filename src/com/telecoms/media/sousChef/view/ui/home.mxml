@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" backgroundColor="#FFFFFF" 
+		height="100%" 
+		width="100%" 
+		paddingTop="5"
+		paddingBottom="5"
+		horizontalScrollPolicy="off" 
+		verticalScrollPolicy="off" 
+		y="0" 
+		autoLayout="false"
+		xmlns:ui="com.telecoms.media.sousChef.view.ui.*">
+<mx:Script>
+	<![CDATA[
+ 		import com.telecoms.media.sousChef.model.sousChefModelLocator;
+		import mx.events.ListEvent;
+		import com.telecoms.media.sousChef.control.events.menu.LoadRecipesEvent;
+		import flash.external.*;
+		
+		[Bindable]
+		public var model:sousChefModelLocator = sousChefModelLocator.getInstance();
+		
+		// Load Image data
+		public function loadXML():void
+		{
+			var event:LoadRecipesEvent=null;
+			event=new LoadRecipesEvent();
+			event.dispatch();
+		}
+	]]>
+</mx:Script>
+	<mx:List x="10" y="10" width="100" id="recipeList" dataProvider="{model.recipeList}"></mx:List>
+
+</mx:Canvas>

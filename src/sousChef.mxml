@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" height="146" width="585" backgroundColor="#CCCCCC"
+	paddingTop="0" paddingRight="0" paddingBottom="0"
+	paddingLeft="0" creationComplete="photoGallery.loadXML()">
+	<control:PTController xmlns:control="com.telecoms.media.sousChef.control.*"/>
+	<rds:Services xmlns:rds="com.telecoms.media.sousChef.business.*"/>
+	<gallery:home xmlns:gallery="com.telecoms.media.sousChef.view.ui.*" id="photoGallery"/>
+</mx:Application>
